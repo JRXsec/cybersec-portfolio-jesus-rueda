@@ -1,46 +1,27 @@
-**NMAP comandos**
+**Para qué sirve**
+Sirve para escanear puertos, servicios, versiones y vulnerabilidades de un host. Es la herramienta principal de enumeración en cualquier auditoría o CTF.
 
+**Cuándo la uso**
+En la fase de enumeración inicial, para descubrir qué servicios están expuestos y qué vectores de ataque pueden existir.
 
-Escaneo completo muy intrusivo 
+**Comandos básicos**
+Nmap S4vitar:
+nmap -p- --open -T5 -v -oG allPorts ipHost -n
 
-```bash
-nmap -p- --open -T5 -v -oG allPorts <target-ip> -n 
-```
+Nmap completo:
+nmap -sV 10.130.143.112
 
----
+Escaneo rápido de los 100 puertos más comunes:
+sudo nmap -F -T5 <OBJETIVO>
 
-Escaneo rápido de los 100 puertos más comunes
+Escaneo completo de todos los puertos:
+sudo nmap -p- -T4 10.129.89.226
 
-```bash
-sudo nmap -F -T5 <target-ip>
-```
-
----
-
-
-Escaneo para ver la versión de un servicio que corre sobre un puerto.
-
-```bash
+Ver la versión de un servicio en un puerto:
 nmap -p 8009 -sV --version-intensity 9 <target-ip>
-```
 
----
+Comando simplificado para ver el servicio de un puerto:
+nmap -sV -p3333 IP
 
-Comando para ver los requisitos de autenticación de un servicio AJP (Apache)
-
-```bash
+Ver requisitos de autenticación de un servicio:
 nmap -p 8009 --script ajp-auth <target-ip>
-```
-
----
-
-**Parámetros**
-
-- `-p-` → Escanea los 65535 puertos TCP.
-- `--open` → Muestra únicamente los puertos abiertos.
-- `-T5` → Aumenta la velocidad del escaneo (puede producir falsos negativos).
-- `-v` → Modo verbose.
-- `-oG allPorts` → Guarda la salida en formato greppable.
-- `-n` → No resuelve nombres DNS.
-
----
