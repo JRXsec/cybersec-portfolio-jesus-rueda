@@ -1,10 +1,13 @@
 **Para qué sirve**
+
 Sirve para escanear puertos, servicios, versiones y vulnerabilidades de un host. Es la herramienta principal de enumeración en cualquier auditoría o CTF.
 
 **Cuándo la uso**
+
 En la fase de enumeración inicial, para descubrir qué servicios están expuestos y qué vectores de ataque pueden existir.
 
 **Comandos básicos**
+
 Nmap S4vitar:
 nmap -p- --open -T5 -v -oG allPorts ipHost -n
 
