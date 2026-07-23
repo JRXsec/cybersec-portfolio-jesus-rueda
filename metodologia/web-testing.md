@@ -1,4 +1,4 @@
-# 🌐 Web Testing
+# Web Testing
 
 ## Metodología
 
