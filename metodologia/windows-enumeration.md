@@ -1,18 +1,36 @@
-````md
-# 🪟 Windows Enumeration
+# Windows Enumeration
 
 # Metodología
 
 1. Identificar el sistema operativo.
+**Saber versión, arquitectura y edición.**
+
 2. Identificar el usuario actual.
+**Permisos y privilegios del usuario.**
+
 3. Enumerar usuarios y grupos.
+**Descubrir cuentas y roles.**
+
 4. Enumerar procesos.
+**Detectar software vulnerable o extraño.**
+
 5. Enumerar servicios.
+**Servicios mal configurados o con permisos débiles.**
+
 6. Enumerar tareas programadas.
+**Ejecuciones automáticas explotables.**
+
 7. Enumerar recursos compartidos.
+**Shares accesibles con información sensible.**
+
 8. Buscar credenciales.
+**Archivos, configuraciones y texto plano.**
+
 9. Enumerar permisos.
-10. Documentar todos los hallazgos.
+**ACLs débiles en carpetas y archivos.**
+
+10. Documentar hallazgos.
+**Registrar todo para reproducibilidad.**
 
 ---
 
@@ -20,45 +38,37 @@
 
 ## Versión de Windows
 
-```cmd
-systeminfo
-```
+systeminfo  
+**Información completa del sistema.**
 
-```cmd
-ver
-```
+ver  
+**Versión básica de Windows.**
 
-```cmd
-wmic os get Caption,Version,OSArchitecture
-```
+wmic os get Caption,Version,OSArchitecture  
+**Nombre, versión y arquitectura.**
 
 ---
 
 ## Hostname
 
-```cmd
-hostname
-```
+hostname  
+**Nombre del equipo.**
 
 ---
 
 ## Usuario actual
 
-```cmd
-whoami
-```
+whoami  
+**Usuario actual.**
 
-```cmd
-whoami /all
-```
+whoami /all  
+**Información completa del usuario.**
 
-```cmd
-whoami /priv
-```
+whoami /priv  
+**Privilegios del usuario.**
 
-```cmd
-whoami /groups
-```
+whoami /groups  
+**Grupos del usuario.**
 
 ---
 
@@ -66,33 +76,29 @@ whoami /groups
 
 ## Usuarios locales
 
-```cmd
-net user
-```
+net user  
+**Lista de usuarios locales.**
 
 ---
 
 ## Información de un usuario
 
-```cmd
-net user USERNAME
-```
+net user USERNAME  
+**Detalles del usuario.**
 
 ---
 
 ## Grupos locales
 
-```cmd
-net localgroup
-```
+net localgroup  
+**Lista de grupos locales.**
 
 ---
 
 ## Miembros de un grupo
 
-```cmd
-net localgroup Administrators
-```
+net localgroup Administrators  
+**Miembros del grupo Administrators.**
 
 ---
 
@@ -100,85 +106,74 @@ net localgroup Administrators
 
 ## Configuración IP
 
-```cmd
-ipconfig /all
-```
+ipconfig /all  
+**Interfaces, DNS, DHCP, MAC.**
 
 ---
 
 ## Rutas
 
-```cmd
-route print
-```
+route print  
+**Tabla de rutas.**
 
 ---
 
 ## Conexiones
 
-```cmd
-netstat -ano
-```
+netstat -ano  
+**Conexiones activas con PID.**
 
 ---
 
 ## Puertos
 
-```cmd
-netstat -an
-```
+netstat -an  
+**Puertos abiertos.**
 
 ---
 
 # Procesos
 
-```cmd
-tasklist
-```
+tasklist  
+**Procesos en ejecución.**
 
 ---
 
-## Servicios
+# Servicios
 
-```cmd
-sc query
-```
+sc query  
+**Servicios instalados.**
 
-```cmd
-tasklist /svc
-```
+tasklist /svc  
+**Procesos asociados a servicios.**
 
 ---
 
 # Tareas Programadas
 
-```cmd
-schtasks
-```
+schtasks  
+**Tareas programadas del sistema.**
 
 ---
 
 # Recursos Compartidos
 
-```cmd
-net share
-```
+net share  
+**Shares disponibles.**
 
 ---
 
 # Variables de Entorno
 
-```cmd
-set
-```
+set  
+**Variables del sistema.**
 
 ---
 
 # Unidades
 
-```cmd
-wmic logicaldisk get caption,description
-```
+wmic logicaldisk get caption,description  
+**Unidades y tipo.**
 
 ---
 
@@ -186,9 +181,8 @@ wmic logicaldisk get caption,description
 
 ## Carpetas
 
-```cmd
-icacls C:\Path
-```
+icacls C:\Path  
+**Permisos de la carpeta.**
 
 ---
 
@@ -196,33 +190,29 @@ icacls C:\Path
 
 ## Configuración
 
-```cmd
-dir /s /b *.config
-```
+dir /s /b *.config  
+**Buscar archivos .config.**
 
 ---
 
 ## Archivos de texto
 
-```cmd
-dir /s /b *.txt
-```
+dir /s /b *.txt  
+**Buscar archivos .txt.**
 
 ---
 
 ## Archivos XML
 
-```cmd
-dir /s /b *.xml
-```
+dir /s /b *.xml  
+**Buscar archivos .xml.**
 
 ---
 
 ## Archivos INI
 
-```cmd
-dir /s /b *.ini
-```
+dir /s /b *.ini  
+**Buscar archivos .ini.**
 
 ---
 
@@ -230,17 +220,15 @@ dir /s /b *.ini
 
 ## ARP
 
-```cmd
-arp -a
-```
+arp -a  
+**Tabla ARP.**
 
 ---
 
 ## DNS
 
-```cmd
-ipconfig /displaydns
-```
+ipconfig /displaydns  
+**Cache DNS.**
 
 ---
 
@@ -248,78 +236,101 @@ ipconfig /displaydns
 
 ## Versión
 
-```powershell
-$PSVersionTable
-```
+$PSVersionTable  
+**Versión de PowerShell.**
 
 ---
 
 ## Procesos
 
-```powershell
-Get-Process
-```
+Get-Process  
+**Procesos activos.**
 
 ---
 
 ## Servicios
 
-```powershell
-Get-Service
-```
+Get-Service  
+**Servicios activos.**
 
 ---
 
 ## Usuarios
 
-```powershell
-Get-LocalUser
-```
+Get-LocalUser  
+**Usuarios locales.**
 
 ---
 
 ## Grupos
 
-```powershell
-Get-LocalGroup
-```
+Get-LocalGroup  
+**Grupos locales.**
 
 ---
 
 # Herramientas
 
-- winPEAS
-- Seatbelt
-- PowerUp
-- Sysinternals Suite
+winPEAS  
+**Enumeración automática.**
+
+Seatbelt  
+**Auditoría de seguridad.**
+
+PowerUp  
+**PrivEsc en PowerShell.**
+
+Sysinternals Suite  
+**Herramientas avanzadas de análisis.**
 
 ---
 
-
 # Archivos interesantes
 
-- unattended.xml
-- sysprep.xml
-- web.config
-- applicationHost.config
-- hosts
-- SAM
-- SYSTEM
-- SOFTWARE
+unattended.xml  
+**Credenciales en texto plano.**
+
+sysprep.xml  
+**Configuraciones sensibles.**
+
+web.config  
+**Credenciales de aplicaciones web.**
+
+applicationHost.config  
+**Configuración de IIS.**
+
+hosts  
+**Resoluciones locales.**
+
+SAM  
+**Hashes de usuarios.**
+
+SYSTEM  
+**Claves del sistema.**
+
+SOFTWARE  
+**Configuraciones y claves.**
 
 ---
 
 # Recursos
 
-- LOLBAS
-- Microsoft Learn
-- Hack The Box Academy
-- TryHackMe
-- winPEAS
+LOLBAS  
+**Binarios nativos explotables.**
+
+Microsoft Learn  
+**Documentación oficial.**
+
+Hack The Box Academy  
+**Laboratorios prácticos.**
+
+TryHackMe  
+**Máquinas de entrenamiento.**
+
+winPEAS  
+**Enumeración automática.**
 
 ---
 
-# Notas
 
-Añadir observaciones, comandos útiles y técnicas aprendidas durante laboratorios y máquinas.
-````
+
