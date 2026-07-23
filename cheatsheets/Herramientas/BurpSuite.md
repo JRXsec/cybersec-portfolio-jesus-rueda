@@ -23,6 +23,7 @@ Podemos crear una wordlist en un .txt para que Burpsuite cambie todas las extens
 Ahora abrimos la request en el intruder para probar extensiones.
 
 REPEATER
+
 Repeater sirve para repetir una petición HTTP y modificarla manualmente todas las veces que quieras. Cambias parámetros, headers, cookies o el body y ves cómo responde el servidor. Es perfecto para probar payloads, validar vulnerabilidades, hacer bypasses y entender el comportamiento exacto de una request.
 
 Lo uso cuando quiero manipular una petición sin depender del navegador: envío la request al Repeater, edito lo que me interesa (parámetros, tokens, valores), la reenvío y comparo respuestas para ver si hay cambios, errores o comportamientos vulnerables.
