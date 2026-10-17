@@ -1,7 +1,7 @@
 # OSCP Preparation Journey
 
 Repositorio personal de preparación ofensiva orientada a pentesting, documentación técnica y
-metodología OSCP.
+metodología OSCP previa a el inicio del master.
 
 
 
